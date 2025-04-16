@@ -48,7 +48,9 @@
     </div>
 
     <!-- 底部信息 -->
-    <p class="mt-8 text-xs text-gray-500">如有建议，请与我们联系</p>
+    <p class="mt-8 text-xs text-gray-500">
+      <a href="https://xheishou.com/index.html#contact" class="hover:text-gray-400 transition-colors duration-200">如有建议，请点击与我们联系</a>
+    </p>
   </div>
 
   <!-- 通知组件 -->

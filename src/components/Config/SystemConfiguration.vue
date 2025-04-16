@@ -65,7 +65,7 @@
 
       <!-- 工具状态卡片 -->
       <div
-        class="bg-gray-800/40 backdrop-blur-xl p-8 rounded-2xl shadow-2xl border border-gray-700/30"
+        class="bg-gray-800/40 backdrop-blur-xl p-8 rounded-2xl shadow-2xl border border-gray-700/30 mb-8"
       >
         <div class="flex items-center justify-between mb-6">
           <h2 class="text-xl font-medium tracking-wide text-gray-200">
@@ -138,6 +138,55 @@
           加载中...
         </div>
       </div>
+
+      <!-- 关于本系统卡片 -->
+      <div
+        class="bg-gray-800/40 backdrop-blur-xl p-8 rounded-2xl shadow-2xl border border-gray-700/30"
+      >
+        <div class="flex items-center mb-6">
+          <h2 class="text-xl font-medium tracking-wide text-gray-200">
+            <i class="ri-information-line mr-2"></i>
+            关于本系统
+          </h2>
+        </div>
+
+        <div class="bg-gray-900/50 backdrop-blur-sm border border-gray-700/30 rounded-xl p-6">
+          <div class="space-y-4">
+            <div class="flex items-start">
+              <i class="ri-shield-keyhole-line text-xl text-cyan-400 mt-1 mr-3"></i>
+              <p class="text-gray-300 leading-relaxed">
+                本平台的核心思路是从攻击者视角出发，对企业的网络资产进行全面、深入的审视与管理。
+              </p>
+            </div>
+            
+            <div class="flex items-start">
+              <i class="ri-radar-line text-xl text-cyan-400 mt-1 mr-3"></i>
+              <p class="text-gray-300 leading-relaxed">
+                通过自动化手段，实现对网络空间的快速测绘，精准识别资产，将资产、漏洞、任务等进行统一管理，以便企业安全团队能够清晰、直观地了解网络安全状态，并迅速做出响应。
+              </p>
+            </div>
+            
+            <div class="flex items-start">
+              <i class="ri-sword-line text-xl text-cyan-400 mt-1 mr-3"></i>
+              <p class="text-gray-300 leading-relaxed">
+                旨在改变传统安全防护的被动局面，主动出击，提前发现并解决可能被攻击者利用的安全问题，最大程度降低企业网络安全风险。
+              </p>
+            </div>
+            
+            <div class="mt-6 pt-6 border-t border-gray-700/30">
+              <div class="flex items-center justify-between">
+                <span class="text-gray-400 text-sm">
+                  <i class="ri-github-fill mr-2"></i>
+                  CyberHawk-网络鹰平台
+                </span>
+                <span class="text-cyan-400 text-sm font-medium">
+                  v{{ version }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <FooterPage />
@@ -171,6 +220,7 @@ export default {
   setup() {
     const systemInfo = ref(null);
     const toolsInfo = ref(null); // 改名以匹配后端响应
+    const version = ref("1.0.0"); // 添加系统版本
 
     const {
       showNotification,
@@ -230,6 +280,7 @@ export default {
       showNotification,
       notificationMessage,
       notificationType,
+      version, // 导出版本变量
     };
   },
 };

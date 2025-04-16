@@ -17,6 +17,13 @@ import TargetManagement from "@/components/Target/TargetManagement.vue";
 import TargetDetail from "@/components/Target/TargetDetail.vue";
 import UnderDevelopment from "@/components/UnderDevelopment.vue";
 
+// 导入新页面的组件，临时使用 UnderDevelopment 组件来统一处理
+import ProductIntro from "@/components/UnderDevelopment.vue";
+import Solutions from "@/components/UnderDevelopment.vue";
+import Features from "@/components/UnderDevelopment.vue";
+import Pricing from "@/components/UnderDevelopment.vue";
+import AboutUs from "@/components/UnderDevelopment.vue";
+
 const routes = [
   {
     path: "/",
@@ -106,6 +113,38 @@ const routes = [
     name: "UnderDevelopment",
     component: UnderDevelopment,
   },
+  
+  // 添加5个新路由（未登录状态可访问）
+  {
+    path: "/product-intro",
+    name: "ProductIntro",
+    component: ProductIntro,
+    meta: { public: true } // 标记为公开页面，无需登录即可访问
+  },
+  {
+    path: "/solutions",
+    name: "Solutions",
+    component: Solutions,
+    meta: { public: true }
+  },
+  {
+    path: "/features",
+    name: "Features",
+    component: Features,
+    meta: { public: true }
+  },
+  {
+    path: "/pricing",
+    name: "Pricing",
+    component: Pricing,
+    meta: { public: true }
+  },
+  {
+    path: "/about-us",
+    name: "AboutUs",
+    component: AboutUs,
+    meta: { public: true }
+  },
 ];
 
 const router = createRouter({
@@ -121,7 +160,8 @@ router.beforeEach(async (to, from, next) => {
     !isAuthenticated &&
     to.name !== "LoginPage" &&
     to.name !== "Home" &&
-    to.name !== "Setup2FA"
+    to.name !== "Setup2FA" &&
+    !(to.meta && to.meta.public) // 增加对公开页面的检查
   ) {
     next({ name: "Home" });
   } else {
